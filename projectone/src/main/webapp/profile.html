@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="hello.js"></script>
+<link rel="stylesheet" href="profile.css">
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+   <div id="wrapper">
+
+        <!-- Sidebar -->
+   <div id="sidebar-wrapper">
+       <ul class="sidebar-nav">
+           <li class="sidebar-brand">
+               <h2>the office</h2>
+           </li>
+           
+           <li>
+            <form action="managerhome" method="POST">
+   			<button class="btn block" type="submit" id="manageraccess">Manager Access</button>
+   			</form>
+          <br><br>
+          </li>
+          
+          <li>
+          	<form action="employeeinfo" method="POST">
+              <button class="btn block" type="submit">Update Account Information</button> 
+              </form>
+          <br><br>
+          </li>
+            <li>
+            <br>
+                <button class="btn block" type="submit" id="submitnew">Submit Reimbursement Request</button>
+            
+                <button class="btn block" type="submit" id="pending">View Pending Reimbursements</button>
+            
+                <button class="btn block" type="submit" id="approved">View Approved Reimbursements</button>
+            
+                <button class="btn block" type="submit" id="denied">View Denied Reimbursements</button>
+            
+                <button class="btn block" type="submit" id="viewall">View All Reimbursements</button>
+            </li>
+            <li>
+            <br>
+           
+            <li>
+            <br><br><br><br>
+    <button class="btn block" type="submit" id="logout">Logout</button>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+
+				<h3 id="firstlast"></h3>
+				<br>
+				<p id="employeenum"></p>
+				<br>
+				<p id="email"></p>
+				<br>
+	<p id="access"></p>
+	<br> <br> <br>
+	<div id="needtohide">
+		<table class="table table-responsive table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Reimbursement ID</th>
+					<th>Reimbursement Amount</th>
+					<th>Reimbursement Type</th>
+					<th>Reimbursement Description</th>
+					<th>Reimbursement Status</th>
+					<th>Reimbursement Manager ID</th>
+				</tr>
+			</thead>
+			<tbody id="rtable"></tbody>
+		</table>
+	</div>
+	<br><br>
+	<div>
+	
+	<div class="card-body">
+                      <form id="newReimbursement" class="form" action="submitreimbursement" method="post">
+                         <div class="form-group">
+                           <h3> SUBMIT A NEW REIMBURSEMENT REQUEST</h3><br>
+                           <p class="border bg-light" id="formDate"></p>
+                           
+                         </div>
+                       <div class="form-group">
+                         <label for="exampleFormControlSelect1">Reimbursement Type</label>
+                         <select class="form-control" id="type" name="type">
+                           <option>Office Supplies</option>
+                           <option>Travel</option>
+                           <option>Medical</option>
+                           <option>Training</option>
+                           <option>Outings</option>
+                           <option>Office Events</option>
+                      	   <option>Miscellaneous</option> 
+                         </select>
+                       </div>
+                       <div class="form-group">
+                         <label for="exampleFormControlSelect2">Reimbursement Amount</label>
+                         <input class="form-control" type="number" name="amount" id="amount" min="0"/>
+                       </div>
+                       <div class="form-group">
+                         <label for="exampleFormControlTextarea1">Request Description</label>
+                         <textarea class="form-control" id="description" name="description" rows="2"></textarea>
+                       </div>
+                       <div class="form-group">
+                           <!-- <input type="file" class="form-control" id="exampleFormControlFile1" name="image"> -->
+                         </div>
+                         <button type="submit" name="submit" class="btn btn-primary text-center">Submit</button>
+                         </form>
+		</div>
+		</div>
+				<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>  -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+ <!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
+</body>
+</html>
